@@ -46,8 +46,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       # unit tests
-      - name: unit tests
-        run: ./rego -c "*" test
+      - name: python36
+        run: ./rego -c python36 test --cov
+      - name: python39
+        run: ./rego -c python39 test --cov
+      - name: python312
+        run: ./rego -c python39 test --cov
 
   end-to-end-tests:
 
