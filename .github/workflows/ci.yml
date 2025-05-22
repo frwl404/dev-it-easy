@@ -51,8 +51,14 @@ jobs:
       - name: python39
         run: ./rego -c python39 test --cov
       - name: python312
-        run: ./rego -c python39 test --cov
-
+        run: ./rego -c python39 test --cov --cov-report json
+      - name: upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: code-coverage
+          path: |
+            coverage.json
+            htmlcov
   end-to-end-tests:
 
     runs-on: ubuntu-latest
