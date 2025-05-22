@@ -1,4 +1,4 @@
-name: rego
+name: CI
 
 on:
   push:
